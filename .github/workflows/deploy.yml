@@ -11,7 +11,7 @@ on:
 jobs:
   build-pandoc-wasm:
     name: Build pandoc-wasm
-    runs-on: self-hosted
+    runs-on: ubuntu-latest  # 修改为使用 GitHub 默认云运行器
     permissions:
       contents: write
       packages: read
@@ -59,7 +59,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # 确保部署作业也在云运行器上运行
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
